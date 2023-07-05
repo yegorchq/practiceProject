@@ -13,36 +13,51 @@ def main():
     matrix = generateMatrix(n)
     b = np.random.randint(n)
     timeValues = startAllFunc(matrix, b, n)
+    makeGraphics(timeValues, n)
     
-    
-    
+#функция, генерирующая матрицу порядка 𝑛 с заданными свойствами 
+#(симметричность и положительная определенность).
 def generateMatrix(n):
     matrix = make_spd_matrix(n)
     return matrix
     
+#Функция, замеряющая время выполнения всех 
+#методов на системе определенного порядка 𝑛.
 def startAllFunc(matrix, b, n)
     '''
     start_time = time.time()
-    relaxationMethod()
+    relaxationMethod(matrix, b)
     end_time = time.time()
     time_relaxation = end_time - start_time
     '''
     '''
     start_time = time.time()
-    minNevyazkaMethod()
+    minNevyazkaMethod(matrix, b)
     end_time = time.time()
     time_minNevyazka = end_time - start_time
     '''
     '''
     start_time = time.time()
-    minNevyazkaMethod()
+    minNevyazkaMethod(matrix, b)
     end_time = time.time()
     time_minNevyazka = end_time - start_time
     '''
     start_time = time.time()
-    soprGradMethod()
+    soprGradMethod(matrix, b)
     end_time = time.time()
     time_soprGrad = end_time - start_time
     
-    timeValues = [time_relaxation, time_minNevyazka, time_soprGrad, time_Sonya]
+    #tmp
+    timeValues = np.zeros(4)
+    timeValues = [time_relaxation, time_minNevyazka, time_soprGrad, time_3]
     return timeValues
+
+
+#
+def makeGraphics(timeValues, n):
+    names = ['Релаксация', 'Мин. невязка', 'сопряженные градиенты', 'метод?']
+    plt.figure(figsize=(3, 3))
+
+    plt.plot(names, values)
+    plt.suptitle('%.2f' %n)
+    plt.show()  
