@@ -10,6 +10,7 @@ def soprGradMethod(A: np.ndarray,
     r = np.dot(A, x) - b
     p = - r
     r_k_norm = np.dot(r, r)
+    r_k_0 = r_k_norm
     for i in range(2*n):
         Ap = np.dot(A, p)
         alpha = r_k_norm / np.dot(p, Ap)
@@ -18,7 +19,7 @@ def soprGradMethod(A: np.ndarray,
         r_kplus1_norm = np.dot(r, r)
         beta = r_kplus1_norm / r_k_norm
         r_k_norm = r_kplus1_norm
-        if r_kplus1_norm < eps:
+        if np.sqrt(r_kplus1_norm)/np.sqrt(r_k_0) < eps:
             break
         p = beta*p - r
     return x
