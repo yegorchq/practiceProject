@@ -4,12 +4,8 @@ import matplotlib.pyplot as plt
 import time
 from sklearn.datasets import make_spd_matrix
 #from relaxationMethod import relaxationMethod
-from soprGradMethod import soprGradMethod
-<<<<<<< HEAD
-#from
-=======
+#from soprGradMethod import soprGradMethod
 from MetodNaiskorSp import MetodNaiscorSp
->>>>>>> 400666c (Доработать метод наискорейшего спуска, подтянуть в мэин, добавить нормальный гитигнор)
 #from 
 
 #основная функция (подпрограмма), запускающая все тесты и получающая
@@ -52,20 +48,14 @@ def startAllFunc(matrix, b, n, eps):
     time_minNevyazka = end_time - start_time
    
     start_time = time.time()
-    soprGradMethod(matrix, b, eps)
+  # soprGradMethod(matrix, b, eps)
     end_time = time.time()
     time_soprGrad = end_time - start_time
 
     start_time = time.time()
-<<<<<<< HEAD
-    #minNevyazkaMethod(matrix, b, eps)
-    end_time = time.time()
-    time_minNevyazka = end_time - start_time
-=======
     MetodNaiscorSp(matrix, b, eps)
     end_time = time.time()
     time_NaiskorSp = end_time - start_time
->>>>>>> 400666c (Доработать метод наискорейшего спуска, подтянуть в мэин, добавить нормальный гитигнор)
 
     #tmp
     print(time_soprGrad)

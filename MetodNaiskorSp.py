@@ -13,3 +13,4 @@ def MetodNaiscorSp(A, b, eps):
         x -= (t*y)
         y = A@x - b
     return x
+
