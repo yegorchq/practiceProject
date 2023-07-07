@@ -1,5 +1,5 @@
 import numpy as np
-def relaxationMethod():
+def relaxationMethod(A,b,eps):
 	
 	ITERATION_LIMIT = 1000
 
