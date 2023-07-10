@@ -7,7 +7,6 @@ from relaxationMethod import relaxationMethod
 from soprGradMethod import soprGradMethod
 from MetodNaiskorSp import MetodNaiscorSp
 from minNevyazkaMethod import minNevyazkaMethod
-#from 
 
 #основная функция (подпрограмма), запускающая все тесты и получающая
 #результаты замеров скорости выполнения [и точности] и визуализирующая
@@ -43,7 +42,6 @@ def startAllFunc(matrix, b, n, eps):
     end_time = time.time()
     time_relaxation = end_time - start_time
 
-
     start_time = time.time()
     minNevyazkaMethod(matrix, b, eps)
     end_time = time.time()
@@ -53,7 +51,6 @@ def startAllFunc(matrix, b, n, eps):
     soprGradMethod(matrix, b, eps)
     end_time = time.time()
     time_soprGrad = end_time - start_time
-    print(time_soprGrad)
 
     start_time = time.time()
     MetodNaiscorSp(matrix, b, eps)
