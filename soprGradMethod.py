@@ -11,7 +11,7 @@ def soprGradMethod(A: np.ndarray,
     p = - r
     r_k_norm = np.dot(r, r)
     r_k_0 = r_k_norm
-    for i in range(2*n):
+    for i in range(20*n):
         Ap = np.dot(A, p)
         alpha = r_k_norm / np.dot(p, Ap)
         x += alpha*p
