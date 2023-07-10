@@ -3,13 +3,10 @@ import matplotlib as plt
 import matplotlib.pyplot as plt
 import time
 from sklearn.datasets import make_spd_matrix
-#from relaxationMethod import relaxationMethod
+from relaxationMethod import relaxationMethod
 from soprGradMethod import soprGradMethod
-<<<<<<< HEAD
-#from
-=======
 from MetodNaiskorSp import MetodNaiscorSp
->>>>>>> 400666c (Доработать метод наискорейшего спуска, подтянуть в мэин, добавить нормальный гитигнор)
+from minNevyazkaMethod import minNevyazkaMethod
 #from 
 
 #основная функция (подпрограмма), запускающая все тесты и получающая
@@ -17,8 +14,8 @@ from MetodNaiskorSp import MetodNaiscorSp
 #эти результаты в графическом или табличном представлении.'''
 def main():
   
-  nList = [4, 8, 10, 20, 40, 199]
-  eps = 10**(-20)
+  nList = [4, 8, 10, 20, 40, 99]
+  eps = 10**(-11)
   timeValues = np.zeros(shape=(6,4))
   print("start")
   iter = 0
@@ -42,35 +39,28 @@ def generateMatrix(n):
 def startAllFunc(matrix, b, n, eps):
 
     start_time = time.time()
-    #relaxationMethod(matrix, b, eps)
+    relaxationMethod(matrix, b, eps)
     end_time = time.time()
     time_relaxation = end_time - start_time
-  
+
+
     start_time = time.time()
-    #minNevyazkaMethod(matrix, b, eps)
+    minNevyazkaMethod(matrix, b, eps)
     end_time = time.time()
     time_minNevyazka = end_time - start_time
-   
+
     start_time = time.time()
     soprGradMethod(matrix, b, eps)
     end_time = time.time()
     time_soprGrad = end_time - start_time
+    print(time_soprGrad)
 
     start_time = time.time()
-<<<<<<< HEAD
-    #minNevyazkaMethod(matrix, b, eps)
-    end_time = time.time()
-    time_minNevyazka = end_time - start_time
-=======
     MetodNaiscorSp(matrix, b, eps)
     end_time = time.time()
     time_NaiskorSp = end_time - start_time
->>>>>>> 400666c (Доработать метод наискорейшего спуска, подтянуть в мэин, добавить нормальный гитигнор)
 
-    #tmp
-    print(time_soprGrad)
-    
-    timeValues = [time_relaxation, time_minNevyazka, time_soprGrad, 0]
+    timeValues = [time_relaxation, time_minNevyazka, time_soprGrad, time_NaiskorSp]
     return timeValues
 
 #рисуем графички

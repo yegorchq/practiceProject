@@ -14,10 +14,10 @@ def relaxationMethod(A, b, eps):
           s1 = np.dot(A[i, :i], x_new[:i])
           s2 = np.dot(A[i, i + 1:], x[i + 1:])
           x_new[i] = (b[i] - s1 - s2) / A[i, i]
-      if (np.sqrt(np.dot(x_new, x_new)/np.dot(x0, x0))) >= eps:
+      if (np.sqrt(np.dot(x_new, x_new)/np.dot(x0, x0))) <= eps:
           break
       if (it_count == 2):
         x0 = x_new
       x = x_new
 
-    return x
+  return x
